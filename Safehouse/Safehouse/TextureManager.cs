@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Safehouse
 {
-    class TextureManager
+    public class TextureManager
     {
         private Dictionary<string, Texture2D> textures;
         private ContentManager content;

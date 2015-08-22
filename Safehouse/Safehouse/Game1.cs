@@ -3,19 +3,21 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Framework;
 using Microsoft.Xna.Framework.Audio;
+using System.Collections.Generic;
 
 namespace Safehouse
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class Game1 : Game, IObserver<Projectile>
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         TextureManager textureManager;
         Player player;
         Zombie enemy;
+        List<Projectile> projectiles;
 
         //number of gamepads connected
         int padsConnected = 0;
@@ -50,6 +52,7 @@ namespace Safehouse
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            projectiles = new List<Projectile>();
 
             //Gets the number of controllers that are connected 
             for (int i = 0; i < 4; i++)
@@ -94,6 +97,7 @@ namespace Safehouse
             player = new Player();
             player.SetPlayerIndex(PlayerIndex.One);
             player.SetPosition(new Vector2(400, 200));
+            player.Subscribe(this);
 
             enemy = new Zombie();
 
@@ -155,6 +159,11 @@ namespace Safehouse
                         //Main game logic
                         player.Update(gameTime);
 
+                        for (int i = 0; i < projectiles.Count; i++)
+                        {
+                            projectiles[i].Update(gameTime);
+                        }
+
                         break;
                     }
                 case (int)GameState.GameOver:
@@ -164,6 +173,13 @@ namespace Safehouse
             }
 
             base.Update(gameTime);
+        }
+
+        public void Notify(Projectile projectile)
+        {
+            projectile.Load(textureManager.GetTexture("Projectile"));
+
+            projectiles.Add(projectile);
         }
 
         /// <summary>
@@ -179,8 +195,13 @@ namespace Safehouse
 
             player.Draw(spriteBatch);
 
-            spriteBatch.DrawString(font, 
-                "Vector Length: " + player.GetAimLength(), new Vector2(20, 20), Color.White);
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                projectiles[i].Draw(spriteBatch);
+            }
+
+            spriteBatch.DrawString(font,
+               "Vector Length: " + player.GetAimLength(), new Vector2(20, 20), Color.White);
 
             spriteBatch.End();
 

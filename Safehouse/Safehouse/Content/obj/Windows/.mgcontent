@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/James/Source/Repos/Safehouse/Safehouse/Safehouse/Content/Ossuary 4 - Animate.mp3</File>
+    <File>C:/Users/James/Source/Repos/Safehouse/Safehouse/Safehouse/Content/Player.png</File>
+    <File>C:/Users/James/Source/Repos/Safehouse/Safehouse/Safehouse/Content/Zombie.png</File>
+    <File>C:/Users/James/Source/Repos/Safehouse/Safehouse/Safehouse/Content/Kootenay.spritefont</File>
+    <File>C:/Users/James/Source/Repos/Safehouse/Safehouse/Safehouse/Content/Bullet.png</File>
+  </SourceFiles>
+</SourceFileCollection>
