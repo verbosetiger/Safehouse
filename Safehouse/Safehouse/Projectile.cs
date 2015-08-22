@@ -9,14 +9,14 @@ namespace Safehouse
 {
     public class Projectile : Sprite
     {
-        private int speed;
+        private float speed;
         private Vector2 direction;
 
         //the player index of the player that shot this projectile
         //allows for the player who shot this projectile to be determined
         PlayerIndex playerIndex;
 
-        public Projectile(Vector2 position, int speed, Vector2 direction, 
+        public Projectile(Vector2 position, float speed, Vector2 direction, 
             PlayerIndex playerIndex)
         {
             ignoreDamage = true;

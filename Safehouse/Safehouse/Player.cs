@@ -34,7 +34,7 @@ namespace Safehouse
             playerIndex = PlayerIndex.One;
             movementSpeed = 8;
             movementVector = new Vector2(0, 0);
-            projectileSpeed = 10.0f;
+            projectileSpeed = 3.0f;
             aimVector = new Vector2(0, 0);
             shotDamage = 1;
             aimLength = 0.0f;
@@ -89,7 +89,7 @@ namespace Safehouse
                     timeSinceShot = 0.0f;
                     aimVector.Y = -aimVector.Y;
 
-                    Projectile projectile = new Projectile(this.position, 3, aimVector, playerIndex);
+                    Projectile projectile = new Projectile(this.position, projectileSpeed, aimVector, playerIndex);
 
                     for (int i = 0; i < observers.Count; i++)
                     {
