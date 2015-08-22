@@ -16,8 +16,10 @@ namespace Safehouse
         //allows for the player who shot this projectile to be determined
         PlayerIndex playerIndex;
 
+        float damage;
+
         public Projectile(Vector2 position, float speed, Vector2 direction, 
-            PlayerIndex playerIndex)
+            PlayerIndex playerIndex, float damage)
         {
             ignoreDamage = true;
             this.position = position;
@@ -26,6 +28,7 @@ namespace Safehouse
             this.speed = speed;
             this.direction = direction;
             this.playerIndex = playerIndex;
+            this.damage = damage;
         }
 
         public override void Load(Texture2D texture)
